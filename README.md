@@ -65,7 +65,37 @@ whoami /fqdn
 nltest /dsgetdc:lab.local
 ```
 
-Os prints de cada etapa ficam em [`docs/prints`](docs/prints).
+## Evidências
+
+**1. Rede e VMs criadas por script, no host**
+
+![Script criando o switch e as VMs](docs/prints/01-criar-vms-script.png)
+
+![VMs DC01 e CLI01](docs/prints/02-vms-criadas.png)
+
+**2. Instalação do Windows Server 2025 com interface gráfica**
+
+![Seleção do Windows Server 2025 Standard Desktop Experience](docs/prints/03-server-2025-desktop-experience.png)
+
+**3. DC01 com IP fixo**
+
+![ipconfig da DC01 com 192.168.100.10](docs/prints/04-dc01-ip-fixo.png)
+
+**4. Floresta lab.local criada (AD DS + DNS)**
+
+![Install-ADDSForest concluído com sucesso](docs/prints/05-floresta-criada.png)
+
+**5. DHCP configurado e estrutura de OUs e grupos no AD**
+
+![Script 03 e as OUs no Active Directory Users and Computers](docs/prints/06-dhcp-ous-e-grupos.png)
+
+**6. CLI01 no domínio, logada com conta do AD**
+
+![whoami /fqdn e hostname na CLI01](docs/prints/07-cli01-no-dominio.png)
+
+**7. CLI01 registrada no AD, já na OU Computadores**
+
+![Get-ADComputer CLI01 na DC01](docs/prints/08-cli01-no-ad.png)
 
 ## Problemas que encontrei e como resolvi
 
