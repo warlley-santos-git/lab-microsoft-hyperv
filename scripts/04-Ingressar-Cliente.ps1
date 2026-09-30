@@ -67,6 +67,14 @@ $params = @{
     Restart    = $true
     Force      = $true
 }
-if ($env:COMPUTERNAME -ne $NovoNome) { $params.NewName = $NovoNome }
+
+# Renomear e ingressar ao mesmo tempo (Add-Computer -NewName) pode falhar com
+# "The directory service is busy". O caminho mais estável: renomear localmente
+# primeiro e ingressar já com o nome novo (JoinWithNewName).
+if ($env:COMPUTERNAME -ne $NovoNome) {
+    Rename-Computer -NewName $NovoNome -Force -WarningAction SilentlyContinue
+    $params.Options = 'JoinWithNewName'
+    Write-Host "Computador renomeado para $NovoNome (vale após o reinício)."
+}
 
 Add-Computer @params
