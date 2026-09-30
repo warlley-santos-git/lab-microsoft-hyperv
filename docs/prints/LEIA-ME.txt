@@ -1,0 +1,10 @@
+Coloque aqui os prints de cada etapa do laboratório, com nomes em ordem:
+
+01-vms-criadas.png
+02-dc01-ip-fixo.png
+03-dominio-criado.png
+04-dhcp-escopo.png
+05-ous-e-grupos.png
+06-cliente-no-dominio.png
+
+Depois, apague este arquivo.
